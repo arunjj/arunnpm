@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.reactlibrary"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="22" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application android:usesCleartextTraffic="true" >
+        <activity
+            android:name="com.reactlibrary.view.WebViewActivity"
+            android:exported="true"
+            android:launchMode="singleTask" >
+            <intent-filter tools:ignore="AppLinkUrlError" >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest><!--
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.reactlibrary">
+
+
+
+</manifest>
+-->
