@@ -40,7 +40,7 @@ public class RNNativeToastLibraryModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void startPayment(String paymenturl, Promise promise) {
         this.promise = promise;
-        // Log.e("Passed variable",""+name+" "+location);
+         Log.e("Passed variable",""+name+" "+location);
         Intent intent = (new Intent(getReactApplicationContext(), com.reactlibrary.view.WebViewActivity.class)
         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK).putExtra("url",""+paymenturl));
         getReactApplicationContext().getCurrentActivity().startActivityForResult(intent, 101);
