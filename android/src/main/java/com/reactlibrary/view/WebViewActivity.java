@@ -34,29 +34,30 @@ public class WebViewActivity extends AppCompatActivity {
         wv1.getSettings().setJavaScriptEnabled(true);
         //wv1.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         wv1.loadUrl(getIntent().getStringExtra("url"));
-       // wv1.addJavascriptInterface(new WebAppInterface(this), "HTMLOUT");
-        // wv1.setWebViewClient(new WebViewClient() {
-        //     @Override
-        //     public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        //         view.loadUrl(url);
-        //         return true;
-        //     }
-        //     @Override
-        //     public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        //         super.onPageStarted(view, url, favicon);
+        wv1.addJavascriptInterface(new WebAppInterface(this), "HTMLOUT");
+         wv1.setWebViewClient(new WebViewClient() {
+             @Override
+             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                 view.loadUrl(url);
+                 return true;
+             }
+             @Override
+             public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                 super.onPageStarted(view, url, favicon);
 
-        //     }
-        //     @Override
-        //     public void onPageFinished(WebView view, String url) {
-        //         super.onPageFinished(view, url);
-        //         view.loadUrl("javascript:window.HTMLOUT.processData(document.getElementById('result').value);");            }
+             }
+             @Override
+             public void onPageFinished(WebView view, String url) {
+                 super.onPageFinished(view, url);
+                 Log.e("URL","URL TESTING "+url);
+                 view.loadUrl("javascript:window.HTMLOUT.processData(document.getElementById('result').value);");            }
 
-        //     @Override
-        //     public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-        //         Toast.makeText(getApplicationContext(), "Oh no! "+description , Toast.LENGTH_SHORT).show();
-        //         super.onReceivedError(view, errorCode, description,failingUrl);
-        //     }
-        // });
+             @Override
+             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                 Toast.makeText(getApplicationContext(), "Oh no! "+description , Toast.LENGTH_SHORT).show();
+                 super.onReceivedError(view, errorCode, description,failingUrl);
+             }
+         });
     }
 
     public void tetsme(View view) {
@@ -74,11 +75,11 @@ public class WebViewActivity extends AppCompatActivity {
         }
 
         @JavascriptInterface   // must be added for API 17 or higher
-        public void processData(String toast) throws JSONException {
-            // Log.d("Payment Response-->>>", "...>>>>>"+toast);
+        public void processData(String result) throws JSONException {
+            Log.d("Payment Response-->>>", "...>>>>>"+result);
             //JSONObject object = new JSONObject(toast);
             Intent intentWithResult = new Intent();
-            intentWithResult.putExtra("result", toast);
+            intentWithResult.putExtra("result", result);
             setResult(Activity.RESULT_OK, intentWithResult);
             finish();
         }
@@ -86,16 +87,20 @@ public class WebViewActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
-        sendErrorMessage("Payment failed");
+        try {
+            sendErrorMessage("ERROR_USER_CANCELLED","User Cancelled Transaction");
+        } catch (Exception ex) {
+            sendErrorMessage("ERROR_GENERAL",ex.getMessage());
+        }
     }
 
-    public void sendErrorMessage(String msg) {
-       Intent intentWithResult= new Intent();
-       intentWithResult.putExtra("ErrorType", "1" );
-       intentWithResult.putExtra("ErrorMsg","Cancelled");
-       setResult(Activity.RESULT_CANCELED,intentWithResult);
-       finish();
+    public void sendErrorMessage(String errorType, String errorMsg) {
+        Log.e("Error Message","Testing");
+        Intent intentWithResult= new Intent();
+        intentWithResult.putExtra("ErrorType",errorType);
+        intentWithResult.putExtra("ErrorMsg",errorMsg);
+        setResult(Activity.RESULT_CANCELED,intentWithResult);
+        finish();
     }
 
 }

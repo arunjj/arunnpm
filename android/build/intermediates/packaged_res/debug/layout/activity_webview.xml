@@ -10,28 +10,6 @@
             android:layout_height="match_parent"
             android:visibility="visible"/>
 
-    <!-- <ImageView
-            android:id="@+id/imgv_network_error"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00000000"
-            android:contentDescription="@string/noInternetConnection"
-            android:scaleType="centerInside"
-            android:visibility="gone"/>
-
-    <RelativeLayout
-            android:id="@+id/overlayView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:visibility="visible">
-
-        <ProgressBar
-                android:id="@+id/loading"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"/>
-
-    </RelativeLayout> -->
+  
 
 </FrameLayout>
