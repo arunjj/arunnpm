@@ -30,33 +30,33 @@ public class WebViewActivity extends AppCompatActivity {
         WebView wv1 = (WebView) findViewById(R.id.webView);
 //        wv1.setWebViewClient(new MyBrowser());
 
-        wv1.getSettings().setLoadsImagesAutomatically(true);
+       // wv1.getSettings().setLoadsImagesAutomatically(true);
         wv1.getSettings().setJavaScriptEnabled(true);
-        wv1.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        //wv1.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         wv1.loadUrl(getIntent().getStringExtra("url"));
-        wv1.addJavascriptInterface(new WebAppInterface(this), "HTMLOUT");
-        wv1.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
+       // wv1.addJavascriptInterface(new WebAppInterface(this), "HTMLOUT");
+        // wv1.setWebViewClient(new WebViewClient() {
+        //     @Override
+        //     public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        //         view.loadUrl(url);
+        //         return true;
+        //     }
+        //     @Override
+        //     public void onPageStarted(WebView view, String url, Bitmap favicon) {
+        //         super.onPageStarted(view, url, favicon);
 
-            }
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                view.loadUrl("javascript:window.HTMLOUT.processData(document.getElementById('result').value);");            }
+        //     }
+        //     @Override
+        //     public void onPageFinished(WebView view, String url) {
+        //         super.onPageFinished(view, url);
+        //         view.loadUrl("javascript:window.HTMLOUT.processData(document.getElementById('result').value);");            }
 
-            @Override
-            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-                Toast.makeText(getApplicationContext(), "Oh no! "+description , Toast.LENGTH_SHORT).show();
-                super.onReceivedError(view, errorCode, description,failingUrl);
-            }
-        });
+        //     @Override
+        //     public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+        //         Toast.makeText(getApplicationContext(), "Oh no! "+description , Toast.LENGTH_SHORT).show();
+        //         super.onReceivedError(view, errorCode, description,failingUrl);
+        //     }
+        // });
     }
 
     public void tetsme(View view) {
