@@ -19,7 +19,7 @@ class payupayment: NSObject {
            }
        }
        
-   func sendFailure(code : String,message : String){
+   func sendFailure(code : String, message : String){
      
        if(self.reject != nil){
              print("Failure : ",message)
@@ -28,7 +28,7 @@ class payupayment: NSObject {
    }
     
     @objc(start:withResolver:withRejecter:)
-    func start(url : String, resolve:@escaping RCTPromiseResolveBlock,reject:@escaping RCTPromiseRejectBlock) -> Void {
+    func start(url : NSString, resolve:@escaping RCTPromiseResolveBlock,reject:@escaping RCTPromiseRejectBlock) -> Void {
         self.resolve = resolve
         self.reject = reject
         DispatchQueue.main.async {
@@ -38,10 +38,10 @@ class payupayment: NSObject {
             controller.paymentData = self.paymentData
             controller.callback = {
                 (responseData) in
-                let result = responseData as ResponseData
+                let result = responseData
                 
                 if(result.action==ResponseAction.OK){
-                    self.sendSuccess(message: result.msg)
+                    self.sendSuccess(message: result)
                 }else{
                     self.sendFailure(code: result.errorType!,message: result.errorMsg!)
                 }

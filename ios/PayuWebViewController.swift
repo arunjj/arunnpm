@@ -21,11 +21,21 @@ import WebKit
  * After generating Successful RSA Key we will use that key for encrypting amount and currency and the encrypted details will use for intiate the transaction
  */
 class PayuWebViewController: UIViewController,WKUIDelegate,WKNavigationDelegate {
-    var paymentData : PaymentDetails?
+    
+    struct ResponseData{
+        var errorType : String?
+        var errorMsg : String?
+        var action : ResponseAction?
+        var msg : [String:Any]?
+    }
+    
+    var paymentData : String?
     static var statusCode = 0//zero means success or else error in encrption with rsa
     var encStr = String()
     var isHere = false
     var callback : ((ResponseData) -> Void)?
+    
+    
     
     private var notification: NSObjectProtocol?
     

@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "Arun" }
-  s.platform     = :ios, "7.0"
+  s.platforms    = { :ios => "9.0" }
   s.source       = { :git => "https://github.com/arunjj/arunnpm.git", :tag => "master" }
   s.source_files  = "RNNativeToastLibrary/**/*.{h,m}"
   s.requires_arc = true
