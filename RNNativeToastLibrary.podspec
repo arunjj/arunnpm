@@ -2,7 +2,7 @@ require "json"
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 Pod::Spec.new do |s|
   s.name         = "RNNativeToastLibrary"
-  s.version      = "1.0.8"
+  s.version      = "1.0.9"
   s.summary      = "RNNativeToastLibrary"
   s.description  = <<-DESC
                   RNNativeToastLibrary

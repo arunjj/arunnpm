@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18AD75B327EEE04400A96786 /* payupayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD75B227EEE04400A96786 /* payupayment.swift */; };
-		18AD75B727EEE2C900A96786 /* PayuWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD75B627EEE2C900A96786 /* PayuWebViewController.swift */; };
-		18AD75B927EEE47500A96786 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD75B827EEE47500A96786 /* LoadingOverlay.swift */; };
 		B3E7B58A1CC2AC0600A0062D /* RNNativeToastLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNNativeToastLibrary.m */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +24,7 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNNativeToastLibrary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNNativeToastLibrary.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		18AD75B127EEE04300A96786 /* RNNativeToastLibrary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNNativeToastLibrary-Bridging-Header.h"; sourceTree = "<group>"; };
-		18AD75B227EEE04400A96786 /* payupayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = payupayment.swift; sourceTree = "<group>"; };
-		18AD75B627EEE2C900A96786 /* PayuWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayuWebViewController.swift; sourceTree = "<group>"; };
-		18AD75B827EEE47500A96786 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
+		B3E7B5881CC2AC0600A0062D /* RNNativeToastLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNNativeToastLibrary.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNNativeToastLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNNativeToastLibrary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,12 +50,9 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				18AD75B827EEE47500A96786 /* LoadingOverlay.swift */,
-				18AD75B627EEE2C900A96786 /* PayuWebViewController.swift */,
-				18AD75B227EEE04400A96786 /* payupayment.swift */,
+				B3E7B5881CC2AC0600A0062D /* RNNativeToastLibrary.h */,
 				B3E7B5891CC2AC0600A0062D /* RNNativeToastLibrary.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
-				18AD75B127EEE04300A96786 /* RNNativeToastLibrary-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +87,6 @@
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
 						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -105,7 +95,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -124,9 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E7B58A1CC2AC0600A0062D /* RNNativeToastLibrary.m in Sources */,
-				18AD75B327EEE04400A96786 /* payupayment.swift in Sources */,
-				18AD75B727EEE2C900A96786 /* PayuWebViewController.swift in Sources */,
-				18AD75B927EEE47500A96786 /* LoadingOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,41 +203,32 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
+				"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNNativeToastLibrary;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNNativeToastLibrary-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNNativeToastLibrary;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "RNNativeToastLibrary-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
