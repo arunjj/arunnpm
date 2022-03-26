@@ -19,6 +19,9 @@ import com.facebook.react.bridge.WritableNativeMap;
 import com.reactlibrary.view.*;
 import com.facebook.react.bridge.WritableMap;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class RNNativeToastLibraryModule extends ReactContextBaseJavaModule implements ActivityEventListener {
 
   private final ReactApplicationContext reactContext;
@@ -72,11 +75,20 @@ public class RNNativeToastLibraryModule extends ReactContextBaseJavaModule imple
   public void sendFailure(String code, String message) {
         Log.e("Error Message",""+code+" "+message);
         promise.reject(code, message);
+
+//      JSONObject obj = null;
+//      try {
+//          obj = new JSONObject("{\"status\":\"cancelled\"}");
+//          promise.resolve(obj.toString());
+//      } catch (JSONException e) {
+//          e.printStackTrace();
+//      }
+
   }
 
   @ReactMethod
   public void startPayment(String paymenturl, Promise promise) {
-        this.promise = promise;
+         this.promise = promise;
          Log.e("Passed variable",""+paymenturl);
          Activity activity = getReactApplicationContext().getCurrentActivity();
          Intent intent = (new Intent(activity, WebViewActivity.class).putExtra("url",""+paymenturl).setFlags(0));

@@ -4,7 +4,9 @@ package com.reactlibrary.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -94,13 +96,37 @@ public class WebViewActivity extends AppCompatActivity {
         }
     }
 
-    public void sendErrorMessage(String errorType, String errorMsg) {
-        Log.e("Error Message","Testing");
-        Intent intentWithResult= new Intent();
-        intentWithResult.putExtra("ErrorType",errorType);
-        intentWithResult.putExtra("ErrorMsg",errorMsg);
-        setResult(Activity.RESULT_CANCELED,intentWithResult);
-        finish();
+    public void sendErrorMessage(final String errorType, final String errorMsg) {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(WebViewActivity.this);
+        builder1.setMessage("Write your message here.");
+        builder1.setCancelable(true);
+
+        builder1.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Log.e("Error Message","Testing");
+                        Intent intentWithResult= new Intent();
+                        intentWithResult.putExtra("ErrorType",errorType);
+                        intentWithResult.putExtra("ErrorMsg",errorMsg);
+                        setResult(Activity.RESULT_CANCELED,intentWithResult);
+                        dialog.dismiss();
+                        finish();
+
+                    }
+                });
+
+        builder1.setNegativeButton(
+                "No",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
     }
 
 }

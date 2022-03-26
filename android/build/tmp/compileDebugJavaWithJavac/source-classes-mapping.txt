@@ -1,10 +1,12 @@
 com/reactlibrary/BuildConfig.java
  com.reactlibrary.BuildConfig
-com/reactlibrary/view/WebViewActivity.java
- com.reactlibrary.view.WebViewActivity
- com.reactlibrary.view.WebViewActivity$1
- com.reactlibrary.view.WebViewActivity$WebAppInterface
 com/reactlibrary/RNNativeToastLibraryPackage.java
  com.reactlibrary.RNNativeToastLibraryPackage
 com/reactlibrary/RNNativeToastLibraryModule.java
  com.reactlibrary.RNNativeToastLibraryModule
+com/reactlibrary/view/WebViewActivity.java
+ com.reactlibrary.view.WebViewActivity
+ com.reactlibrary.view.WebViewActivity$1
+ com.reactlibrary.view.WebViewActivity$2
+ com.reactlibrary.view.WebViewActivity$3
+ com.reactlibrary.view.WebViewActivity$WebAppInterface
